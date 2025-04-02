@@ -50,7 +50,7 @@ def remove_task():
         print("There are no tasks yet, please add some.")
         return
     
-    show_tasks()  # We will shot the tasks so the user can select them
+    show_tasks()  # We will show the tasks so the user can select them
     
     while True:
         try:
