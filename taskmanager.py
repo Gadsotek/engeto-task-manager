@@ -17,7 +17,7 @@ def main_menu():
         except ValueError:
             print("Please select option 1 to 4")
 
-def add_2():
+def add_task():
     """
     Adds a new task with name and description to the task list.
     """
