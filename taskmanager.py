@@ -1,7 +1,12 @@
 tasks = []
+select_opton_text = "Select option (1-4)"
+task_manager_text = 5*"_" + "Task manager" + 5*"_"
 
 def main_menu():
-    print("\n" + 5*"_" + "Task manager" + 5*"_")
+    """
+    Main menu - show the options
+    """    
+    print("\n" + task_manager_text)
     print("1. Add task")
     print("2. Show tasks")
     print("3. Remove task")
@@ -9,13 +14,13 @@ def main_menu():
     
     while True:
         try:
-            choice = int(input("\nSelect option (1-4): "))
+            choice = int(input("\n" + select_opton_text + "): "))
             if 1 <= choice <= 4:
                 return choice
             else:
-                print("Please select option 1 to 4")
+                print(select_opton_text)
         except ValueError:
-            print("Please select option 1 to 4")
+            print(select_opton_text)
 
 def add_task():
     """
@@ -36,16 +41,22 @@ def add_task():
     print(f"Task '{task_name}' added.")
 
 def show_tasks():
+    """
+    Show all tasks
+    """    
     if not tasks:
         print("There are no tasks yet, please add some.")
     else:
-        print("\n" + 5*"_" + "Task manager" + 5*"_")
+        print("\n" + task_manager_text)
         for index, task in enumerate(tasks, 1):
             print(f"{index}. {task['name']}")
             print(f"   Description: {task['description'] if task['description'] else '(no description)'}")
             print()
 
 def remove_task():
+    """
+    Remove task from list
+    """    
     if not tasks:
         print("There are no tasks yet, please add some.")
         return
@@ -60,11 +71,14 @@ def remove_task():
                 print(f"Task '{removed_task['name']}' was removed.")
                 break
             else:
-                print(f"Please enter unmber between 1 and {len(tasks)}.")
+                print(f"Please enter number between 1 and {len(tasks)}.")
         except ValueError:
-            print(f"Please enter unmber between 1 and {len(tasks)}.")
+            print(f"Please enter number between 1 and {len(tasks)}.")
 
 def shutdown():
+    """
+    Terminate the application
+    """    
     print("Shutting down...")
     exit()
 
